@@ -117,9 +117,9 @@ class Gspan {
   unsigned int minsup;
   unsigned int maxpat;
   unsigned int p_count;
-  int k;
-  int i;
-  int maxGN;
+  unsigned int k;
+  unsigned int i;
+  unsigned int maxGN;
   map<int,vector<int> > freq;
   int wildcard_r;
   vector<Graph>   gdata;
@@ -130,6 +130,7 @@ class Gspan {
   void edge_grow(GraphToTracers&);
   void report(GraphToTracers&);
   void run();
+  bool is_train(unsigned int);
 };
 
 Graph toGraph(vector<DFSCode>&);

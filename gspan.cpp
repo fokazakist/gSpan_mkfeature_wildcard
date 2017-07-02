@@ -272,7 +272,7 @@ int Gspan::scan_gspan(GraphToTracers& g2tracers, PairSorter& b_heap, map<int,Pai
 unsigned int Gspan::support(GraphToTracers& g2tracers){
   int support = 0;
   for(GraphToTracers::iterator it = g2tracers.begin();it != g2tracers.end();++it){
-    if(it->first % k != i) continue;
+    if(!is_train(it->first)) continue;
     support++;
   }
   return support;
@@ -434,4 +434,9 @@ void Gspan::run(){
     edge_grow(it->second);
   }
   std::cout << p_count << std::endl;
+}
+
+bool Gspan::is_train(unsigned int n){
+  if(n%k == i) return false;
+  return true;
 }
